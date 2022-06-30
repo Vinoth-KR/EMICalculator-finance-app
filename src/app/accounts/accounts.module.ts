@@ -7,6 +7,8 @@ import { AppRoutingModule } from "../app-routing.module";
 import { SingUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { CommonModule } from "@angular/common";
     ForgotPasswordComponent,
     SingUpComponent
   ],
-  imports:[AppRoutingModule, FormsModule, CommonModule],
+  imports:[AppRoutingModule, FormsModule, CommonModule, HttpClientModule, RouterModule],
   exports:[HomeComponent]
 })
 export class AccountsModule{

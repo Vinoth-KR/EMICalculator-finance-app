@@ -4,10 +4,12 @@ import { AccountsModule } from './accounts/accounts.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MaindashBoardComponent } from './components/maindash-board/maindash-board.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MaindashBoardComponent
   ],
   imports: [
     BrowserModule,    
