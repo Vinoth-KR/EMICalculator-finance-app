@@ -1,0 +1,48 @@
+<form #signupForm="ngForm" (ngSubmit)="onSignupClicked(signupForm.form)">
+    <table>
+        <tr>
+            <td>UserName:</td>
+            <td>
+                <input type="text" name="userNameEditBox" [(ngModel)]="userName" #userNameTextBox="ngModel" required>
+            </td>
+            <td>
+                <div *ngIf="userNameTextBox.errors && (userNameTextBox.dirty || userNameTextBox.touched)">
+                    <p *ngIf="userNameTextBox.errors['required']">UserName is required</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input type="text" name="emailEditBox" [(ngModel)]="email" #emailTextBox="ngModel" required pattern="[^ @]*@[^ @]*">
+            </td>
+            <td>
+                <div *ngIf="emailTextBox.errors && (emailTextBox.dirty || emailTextBox.touched)">
+                    <p *ngIf="emailTextBox.errors['required']">EmailID is required</p>
+                    <p *ngIf="emailTextBox.errors['pattern']">EmailID is Invalid!</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="text" name="passwordEditBox" [(ngModel)]="password" #passwordTextBox="ngModel" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+            </td>
+            <td>
+                <div *ngIf="passwordTextBox.errors && (passwordTextBox.dirty || passwordTextBox.touched)">
+                    <p *ngIf="passwordTextBox.errors['required']">Password is required</p>
+                    <p *ngIf="passwordTextBox.errors['pattern']">Password Pattern is mismatch</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type ="submit" value="SignUp"/>
+            </td>
+            <td>
+                <input type="button" value="Clear" (click)="onClear(signupForm.form)"/>
+            </td>
+        </tr>
+    </table>
+
+</form>
